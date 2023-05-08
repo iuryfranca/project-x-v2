@@ -1,10 +1,10 @@
 import '@/styles/globals.css'
 import { Metadata } from 'next'
+import localFont from 'next/font/local'
+import { ClerkProvider } from '@clerk/nextjs'
 
 import { siteConfig } from '@/config/site'
-import { fontSans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
-import { SiteHeader } from '@/components/site-header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -28,10 +28,34 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
   },
 }
+
+const fontSans = localFont({
+  src: [
+    {
+      path: '../assets/fonts/Larsseit.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/Larsseit-Light.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/Larsseit-Bold.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../assets/fonts/Larsseit-Medium.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-sans',
+})
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -48,12 +72,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <div className="flex-1">{children}</div>
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
+          <ClerkProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="relative flex min-h-screen flex-col">
+                <div className="flex-1">{children}</div>
+              </div>
+              <TailwindIndicator />
+            </ThemeProvider>
+          </ClerkProvider>
         </body>
       </html>
     </>

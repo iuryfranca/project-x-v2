@@ -1,49 +1,32 @@
-import { NextResponse } from 'next/server'
-import { getToken } from 'next-auth/jwt'
-import { withAuth } from 'next-auth/middleware'
+import { NextResponse, type NextRequest } from 'next/server'
+import { getAuth, withClerkMiddleware } from '@clerk/nextjs/server'
 
-export default withAuth(
-  async function middleware(req) {
-    const token = await getToken({ req })
-    const isAuth = !!token
-    const isAuthPage =
-      req.nextUrl.pathname.startsWith('/login') ||
-      req.nextUrl.pathname.startsWith('/register')
+// Set the paths that don't require the user to be signed in
+const publicPaths = ['/*', '/register*']
 
-    console.log('isAuthPage', isAuthPage)
-    console.log('isAuth', isAuth)
+const isPublic = (path: string) => {
+  return publicPaths.find((x) =>
+    path.match(new RegExp(`^${x}$`.replace('*$', '($|/)')))
+  )
+}
 
-    if (isAuthPage) {
-      if (isAuth) {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-
-      return null
-    }
-
-    if (!isAuth) {
-      let from = req.nextUrl.pathname
-      if (req.nextUrl.search) {
-        from += req.nextUrl.search
-      }
-
-      return NextResponse.redirect(
-        new URL(`/login?from=${encodeURIComponent(from)}`, req.url)
-      )
-    }
-  },
-  {
-    callbacks: {
-      async authorized() {
-        // This is a work-around for handling redirect on auth pages.
-        // We return true here so that the middleware function above
-        // is always called.
-        return true
-      },
-    },
+export default withClerkMiddleware((request: NextRequest) => {
+  if (isPublic(request.nextUrl.pathname)) {
+    return NextResponse.next()
   }
-)
+  // if the user is not signed in redirect them to the sign in page.
+  const { userId } = getAuth(request)
+
+  if (!userId) {
+    // redirect the users to /pages/sign-in/[[...index]].ts
+
+    const signInUrl = new URL('/', request.url)
+    signInUrl.searchParams.set('redirect_url', request.url)
+    return NextResponse.redirect(signInUrl)
+  }
+  return NextResponse.next()
+})
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/editor/:path*', '/login', '/register'],
+  matcher: '/((?!_next/image|_next/static|favicon.ico).*)',
 }

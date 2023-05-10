@@ -19,8 +19,8 @@ export default function AuthForm() {
     const { clientX, clientY } = e
     const moveX = clientX - window.innerWidth / 2
     const moveY = clientY - window.innerHeight / 2
-    const offsetFactor = 30
-    imgAnimation.start({
+    const offsetFactor = 50
+    imgAnimation.set({
       x: moveX / offsetFactor,
       y: moveY / offsetFactor,
     })

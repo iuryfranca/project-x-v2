@@ -78,7 +78,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               elements: {
                 formButtonPrimary:
                   'bg-secondary text-secondary-foreground hover:bg-secondary/90 text-sm font-medium',
-                card: 'bg-background/30 text-foreground shadow-none border-2 border-muted/90 backdrop-blur-sm relative !z-10',
+                card: 'bg-background/30 text-foreground shadow-none border-2 border-muted/90 backdrop-blur-sm relative !z-10 min-h-[580px]',
                 headerTitle: 'text-foreground',
                 headerSubtitle: 'text-foreground',
                 formFieldLabel: 'text-foreground',
@@ -87,6 +87,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   'border-2 border-secondary hover:bg-primary bg-primary/95',
                 socialButtonsBlockButtonText: 'text-foreground',
                 footerActionLink: 'text-muted hover:text-muted',
+                formFieldAction: 'text-muted hover:text-muted',
+                identityPreviewEditButtonIcon: 'text-muted hover:text-muted',
+                headerBackRow: 'text-muted hover:text-muted',
               },
             }}
           >

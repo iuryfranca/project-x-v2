@@ -48,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            'min-h-screen bg-background font-sans antialiased',
+            'min-h-screen bg-backgroundPage font-sans antialiased',
             fontSans.variable
           )}
         >
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               elements: {
                 formButtonPrimary:
                   'bg-secondary text-secondary-foreground hover:bg-secondary/90 text-sm font-medium',
-                card: 'bg-background/30 text-foreground shadow-none border-2 border-muted/90 backdrop-blur-sm relative !z-10 min-h-[580px]',
+                card: 'bg-background/30 dark:bg-background/60 text-foreground shadow-none border-2 border-muted/90 dark:border-secondary backdrop-blur-sm relative !z-10 min-h-[580px]',
                 headerTitle: 'text-foreground',
                 headerSubtitle: 'text-foreground',
                 formFieldLabel: 'text-foreground',
@@ -65,11 +65,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 socialButtonsBlockButton:
                   'border-2 border-secondary hover:bg-primary bg-primary/95',
                 socialButtonsBlockButtonText: 'text-foreground',
-                footerActionLink: 'text-muted hover:text-muted',
-                formFieldAction: 'text-muted hover:text-muted',
-                identityPreviewEditButtonIcon: 'text-muted hover:text-muted',
-                headerBackLink: 'text-muted hover:text-muted',
-                headerBackIcon: 'text-muted hover:text-muted',
+                footerActionLink:
+                  'text-muted dark:text-primary-foreground hover:text-muted',
+                footerActionText: 'text-muted dark:text-primary-foreground',
+                dividerLine: 'bg-muted dark:bg-primary-foreground',
+                dividerText: 'text-muted dark:text-primary-foreground',
+                formFieldAction:
+                  'text-muted dark:text-primary-foreground hover:text-muted',
+                identityPreviewEditButtonIcon:
+                  'text-muted dark:text-primary-foreground hover:text-muted',
+                headerBackLink:
+                  'text-muted dark:text-primary-foreground hover:text-muted',
+                headerBackIcon:
+                  'text-muted dark:text-primary-foreground hover:text-muted',
               },
             }}
           >

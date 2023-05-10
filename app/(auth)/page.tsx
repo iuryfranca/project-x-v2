@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default async function AuthPage() {
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <div className="relative flex min-w-full items-center justify-center gap-5 rounded-2xl bg-card bg-white p-4 opacity-75 shadow-2xl">
-        <div className="flex h-full w-[400px] flex-col items-center justify-between rounded-2xl bg-card px-7 py-5">
+      <div className="relative flex min-w-full items-center justify-center gap-5 rounded-2xl bg-white p-4 opacity-75 shadow-2xl dark:bg-primary">
+        <div className="flex h-full w-[400px] flex-col items-center justify-between rounded-2xl bg-card px-7 py-5 dark:bg-background/60">
           <div className="flex h-full w-full flex-col gap-2">
             <div className="h-20 w-full">
               <h1 className="text-5xl font-bold">Project X</h1>
@@ -46,7 +46,7 @@ export default async function AuthPage() {
                     <span className="font-semibold text-primary-foreground underline">
                       shadcn
                     </span>
-                  </Link>{' '}
+                  </Link>
                 </p>
               </div>
             </div>

@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --background-page: 148 62% 96%;
+
     --background: 148 62% 96%;
     --foreground: 163 67% 7%;
 
@@ -37,7 +39,7 @@
   }
 
   .dark {
-    --background: 160 62% 16%;
+    --background: 163 67% 7%;
     --foreground: 148 62% 96%;
 
     --muted: 223 47% 11%;
@@ -77,5 +79,35 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  .App .carousel-sample {
+    margin: 0 auto 2em;
+    max-width: 500px;
+    height: 300px;
+  }
+
+  .default-carousel .e-carousel-items .e-carousel-item .img-container {
+    height: 300px;
+    margin: 0;
+  }
+
+  .default-carousel .e-carousel-items .e-carousel-item .img-caption {
+    bottom: 4em;
+    color: #fff;
+    font-size: 12pt;
+    height: 2em;
+    position: relative;
+    padding: 0.3em 1em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .carousel-sample2 {
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5em;
+    margin: 0 auto 2em;
+    max-width: 420px;
+    height: 420px;
   }
 }

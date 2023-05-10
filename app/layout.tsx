@@ -72,7 +72,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ClerkProvider>
+          <ClerkProvider
+            appearance={{
+              elements: {
+                formButtonPrimary:
+                  'bg-secondary text-secondary-foreground hover:bg-secondary/90 text-sm font-medium',
+                card: 'bg-background/30 text-foreground shadow-none border-2 border-muted/90 backdrop-blur-sm relative !z-10',
+                headerTitle: 'text-foreground',
+                headerSubtitle: 'text-foreground',
+                formFieldLabel: 'text-foreground',
+                formFieldInput: 'opacity-80',
+                socialButtonsBlockButton:
+                  'border-2 border-secondary hover:bg-primary bg-primary/95',
+                socialButtonsBlockButtonText: 'text-foreground',
+                footerActionLink: 'text-muted hover:text-muted',
+              },
+            }}
+          >
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <div className="relative flex min-h-screen flex-col">
                 <div className="flex-1">{children}</div>

@@ -33,28 +33,7 @@ export const metadata: Metadata = {
 }
 
 const fontSans = localFont({
-  src: [
-    {
-      path: '../assets/fonts/Larsseit.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/Larsseit-Light.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/Larsseit-Bold.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/Larsseit-Medium.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
+  src: '../assets/fonts/Larsseit.otf',
   variable: '--font-sans',
 })
 
@@ -89,7 +68,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 footerActionLink: 'text-muted hover:text-muted',
                 formFieldAction: 'text-muted hover:text-muted',
                 identityPreviewEditButtonIcon: 'text-muted hover:text-muted',
-                headerBackRow: 'text-muted hover:text-muted',
+                headerBackLink: 'text-muted hover:text-muted',
+                headerBackIcon: 'text-muted hover:text-muted',
               },
             }}
           >

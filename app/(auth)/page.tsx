@@ -21,8 +21,6 @@ export default async function AuthPage() {
           <ClerkLoaded>
             <div className="relative">
               <SignIn />
-              {/* <div className="absolute left-14 top-14 h-40 w-40 rounded-full bg-cyan-300" /> */}
-              {/* <div className="absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-violet-600" /> */}
               <WomanHoldingHeartSvg className="absolute -right-32 -top-16 h-56 w-56 rotate-[30deg] text-secondary" />
               <SaleSvg className="absolute -bottom-10 -left-36 h-56 w-56 -rotate-45 text-secondary" />
             </div>

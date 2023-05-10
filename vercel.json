@@ -1,4 +1,0 @@
-{
-  "buildCommand": "turbo build",
-  "ignoreCommand": "pnpm dlx turbo-ignore"
-}
